@@ -21,11 +21,11 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            // per lanciare tutti insieme i database
             ProjectSeeder::class
         ]);
         // dopo aver compilato il file, possiamo lanciare dal terminale
         // php artisan migrate --seed
-
 
         // Indipendentemente da quanti seeder ci sono, tutti i seeder verranno
         // eseguiti per popolare il database

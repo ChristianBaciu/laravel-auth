@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,28 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+// il prefisso 'prefix' ci permette di aggiungere un prefisso a tutte le rotte definite all'interno di questo gruppo
+// localhost/dashboard/tutto quello che mettiamo nella rotta
+
+// il prefisso 'name' ci permette di assegnare un nome specifico a ogni rotta all'interno di
+// questo gruppo (ES. utile quando usiamo le rotte con elementi dell'interfaccia utente come
+// le card,) con il nome di base 'dashboard.informazione POST / CREATE / CREATE ecc'
+Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
+
+    // localhost:8000/dashboard/projects
+    Route::resource('projects', ProjectController::class);
+
+    // scriviamo il primo parametro 'projects' che sarebbe il pezzo dell'URL che auto generiamo, NomeController::class;
+
+    // per ogni voce della card c'è una rotta
+    // GET|HEAD   dashboard/projects/{project} ...................... dashboard.projects.show › ProjectController@show
+    // PUT|PATCH  dashboard/projects/{project} .................. dashboard.projects.update › ProjectController@update
+    // DELETE     dashboard/projects/{project} ................ dashboard.projects.destroy › ProjectController@destroy
+    // GET|HEAD   dashboard/projects/{project}/edit ................. dashboard.projects.edit › ProjectController@edit
+
 });
 
 require __DIR__.'/auth.php';
