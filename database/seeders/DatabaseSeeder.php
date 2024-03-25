@@ -1,5 +1,6 @@
 <?php
-
+// il DatabaseSeeder è quel file che ci permette di passare, all'interno di un array, tutto
+// l'elenco, in ordine, dei seeder che vogliamo lanciare al terminale con un solo commando
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,5 +19,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+            ProjectSeeder::class
+        ]);
+        // dopo aver compilato il file, possiamo lanciare dal terminale
+        // php artisan migrate --seed
+
+
+        // Indipendentemente da quanti seeder ci sono, tutti i seeder verranno
+        // eseguiti per popolare il database
     }
 }

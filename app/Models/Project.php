@@ -12,4 +12,7 @@ class Project extends Model
     public $fillable = [
         'titolo', 'contenuto'
     ];
+
+
+
 }
