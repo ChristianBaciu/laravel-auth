@@ -14,14 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// la rotta get che alla chiamata della localhost base chiamerà 'welcome'
 Route::get('/', function () {
     return view('welcome');
 });
 
+// middleware è una funzione che si interpone tra l'utente che fa una richiesta al URL tramite bottone o fisicamente
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+// gestione
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
