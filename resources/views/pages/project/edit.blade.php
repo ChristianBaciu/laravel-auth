@@ -5,12 +5,13 @@
     <div class="container">
 
         <div class="my-4">
-            <h2>Creazione</h2>
+            <h2>Modifica</h2>
         </div>
 
-        {{-- aggiungere sempre 'method POST' --}}
-        <form action="{{route('dashboard.projects.store')}}" method="POST">
+        {{-- parametro '$project->id' --}}
+        <form action="{{ route('dashboard.projects.update', $project->id) }}" method="POST">
             @csrf
+            @method('PUT')
 
             <div class="mb-3">
                 <label for="titolo" class="form-label">Titolo</label>
@@ -20,7 +21,7 @@
                     name="titolo"
                     id="titolo"
                     placeholder="..."
-                    required
+                    value="{{ old('titolo', $project->titolo) }}"
                 />
                 {{-- for, name, id uguali --}}
             </div>
@@ -33,13 +34,13 @@
                     name="contenuto"
                     id="contenuto"
                     placeholder="..."
-                    required
+                    value="{{ old('contenuto', $project->contenuto) }}"
                 />
                 {{-- for, name, id uguali --}}
             </div>
 
             {{-- aggiungere sempre 'type submit' --}}
-            <button type="submit" class="btn btn-success">Conferma creazione</button>
+            <button type="submit" class="btn btn-success">Conferma modifica</button>
 
         </form>
     </div>

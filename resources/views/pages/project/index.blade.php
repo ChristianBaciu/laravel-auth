@@ -8,7 +8,7 @@
             <h2>Tabella</h2>
             {{-- <button class="btn btn-success">Crea</button> --}}
             <a href="{{ route('dashboard.projects.create')}}"
-                class="btn btn-success d-flex align-items-center">
+                class="btn btn-primary d-flex align-items-center">
                 Crea
             </a>
         </div>

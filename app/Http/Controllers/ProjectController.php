@@ -41,7 +41,6 @@ class ProjectController extends Controller
         // dd($request);
 
         $val_data = $request->validated();
-
         // dd($val_data);
 
         $new_project = Project::create($val_data);
@@ -61,7 +60,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('pages.project.edit', compact('project'));
     }
 
     /**
@@ -69,7 +68,16 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        // sostituire false con true nel file 'UpdateProjectRequest'
+        // public function authorize(): bool
+        // {
+        //     return true;
+        // }
+        $val_data = $request->validated();
+
+        $project->update($val_data);
+        return redirect()->route('dashboard.projects.index');
+
     }
 
     /**
