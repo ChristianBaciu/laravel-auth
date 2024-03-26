@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
 
-        <div class="d-flex gap-2 my-4">
+        <div class="my-4">
             <h2>Creazione</h2>
         </div>
 
@@ -20,7 +20,9 @@
                     name="titolo"
                     id="titolo"
                     placeholder="..."
+                    required
                 />
+                {{-- for, name, id uguali --}}
             </div>
 
             <div class="mb-3">
@@ -31,7 +33,9 @@
                     name="contenuto"
                     id="contenuto"
                     placeholder="..."
+                    required
                 />
+                {{-- for, name, id uguali --}}
             </div>
 
             {{-- aggiungere sempre 'type submit' --}}

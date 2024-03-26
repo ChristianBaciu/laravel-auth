@@ -77,6 +77,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        // una volta eliminata la colonna desiderata, torneremo nella rotta 'dashboard.projects.index'
+        return redirect()->route('dashboard.projects.index');
     }
 }

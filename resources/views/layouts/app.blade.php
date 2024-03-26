@@ -46,6 +46,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
+
+                        {{-- dopo aver creato un profilo, si può accedere a questo link --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard.projects.index') }}">Project</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
