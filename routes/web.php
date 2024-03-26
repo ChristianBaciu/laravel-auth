@@ -48,10 +48,13 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     // scriviamo il primo parametro 'projects' che sarebbe il pezzo dell'URL che auto generiamo, NomeController::class;
 
     // per ogni voce della card c'è una rotta
-    // GET|HEAD   dashboard/projects/{project} ...................... dashboard.projects.show › ProjectController@show
-    // PUT|PATCH  dashboard/projects/{project} .................. dashboard.projects.update › ProjectController@update
-    // DELETE     dashboard/projects/{project} ................ dashboard.projects.destroy › ProjectController@destroy
-    // GET|HEAD   dashboard/projects/{project}/edit ................. dashboard.projects.edit › ProjectController@edit
+    // GET|HEAD    dashboard/projects .................. dashboard.projects.index › ProjectController@index
+    // POST        dashboard/projects .................. dashboard.projects.store › ProjectController@store
+    // GET|HEAD    dashboard/projects/create ........... dashboard.projects.create › ProjectController@create
+    // GET|HEAD    dashboard/projects/{project} .......... dashboard.projects.show › ProjectController@show
+    // PUT|PATCH   dashboard/projects/{project} .......... dashboard.projects.update › ProjectController@update
+    // DELETE      dashboard/projects/{project} .......... dashboard.projects.destroy › ProjectController@destroy
+    // GET|HEAD    dashboard/projects/{project}/edit ..... dashboard.projects.edit › ProjectController@edit
 
 });
 

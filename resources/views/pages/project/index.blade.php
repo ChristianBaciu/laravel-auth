@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-{{-- yield di app.blade --}}
+{{-- yield di app.blade, sotto #id stamperà questo codice --}}
 @section('content')
     <div class="container my-5">
         <div class="table-responsive">
@@ -13,7 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($project as $item)
+                    @foreach ($projects as $item)
                         <tr>
                             <td>{{$item->id}}</td>
                             <td>{{$item->titolo}}</td>

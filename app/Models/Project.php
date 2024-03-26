@@ -13,6 +13,4 @@ class Project extends Model
         'titolo', 'contenuto'
     ];
 
-
-
 }
