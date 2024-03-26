@@ -6,7 +6,11 @@
 
         <div class="d-flex gap-2 my-4">
             <h2>Tabella</h2>
-            <button class="btn btn-success">Crea</button>
+            {{-- <button class="btn btn-success">Crea</button> --}}
+            <a href="{{ route('dashboard.projects.create')}}"
+                class="btn btn-success d-flex align-items-center">
+                Crea
+            </a>
         </div>
 
         <div class="table-responsive">
@@ -27,8 +31,18 @@
                             <td>{{$item->contenuto}}</td>
                             <td>
                                 <div class="d-flex gap-2">
-                                    <button class="btn btn-warning">Modifica</button>
-                                    <button class="btn btn-danger">Elimina</button>
+                                    {{-- <button class="btn btn-warning">Modifica</button> --}}
+                                    <a href="{{ route('dashboard.projects.edit', $item->id)}}"
+                                        class="btn btn-warning">
+                                        Modifica
+                                    </a>
+
+                                    {{-- <button class="btn btn-danger">Elimina</button> --}}
+                                    <form method="POST" action="{{route('dashboard.projects.destroy', $item->id)}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger">Elimina</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

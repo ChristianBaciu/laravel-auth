@@ -24,7 +24,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.project.create');
     }
 
     /**
@@ -32,7 +32,20 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        // sostituire false con true nel file 'StoreProjectRequest'
+        // public function authorize(): bool
+        // {
+        //     return true;
+        // }
+
+        // dd($request);
+
+        $val_data = $request->validated();
+
+        // dd($val_data);
+
+        $new_project = Project::create($val_data);
+        return redirect()->route('dashboard.projects.index');
     }
 
     /**

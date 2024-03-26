@@ -11,7 +11,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            // 'required' serve a garantire che un campo sia obbligatorio e non possa essere lasciato vuoto
+            'titolo' => ['required', 'max:100'],
+            'contenuto' => ['required', 'max:200'],
         ];
     }
 }
