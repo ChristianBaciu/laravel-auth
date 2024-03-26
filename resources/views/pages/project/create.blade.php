@@ -16,26 +16,40 @@
                 <label for="titolo" class="form-label">Titolo</label>
                 <input
                     type="text"
-                    class="form-control"
                     name="titolo"
                     id="titolo"
                     placeholder="..."
-                    required
+                    class="form-control
+                    @error('titolo')
+                        is-invalid
+                    @enderror"
                 />
                 {{-- for, name, id uguali --}}
+                @error('titolo')
+                    <div class="alert alert-danger">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="contenuto" class="form-label">Contenuto</label>
                 <input
                     type="text"
-                    class="form-control"
                     name="contenuto"
                     id="contenuto"
                     placeholder="..."
-                    required
+                    class="form-control
+                    @error('contenuto')
+                        is-invalid
+                    @enderror"
                 />
                 {{-- for, name, id uguali --}}
+                @error('contenuto')
+                    <div class="alert alert-danger">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
 
             {{-- aggiungere sempre 'type submit' --}}
