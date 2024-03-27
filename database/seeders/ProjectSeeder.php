@@ -20,7 +20,7 @@ class ProjectSeeder extends Seeder
             $project = new Project();
 
             $project->titolo = $faker->sentence(5); // sentence con questa funzione genera casualmente una frase di circa 5 parole
-            $project->contenuto = $faker->text(200); // text mi genera un testo casuale con circa 200 caratteri
+            $project->contenuto = $faker->text(100); // text mi genera un testo casuale con circa 200 caratteri
 
             $project->save();
         }

@@ -34,10 +34,6 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         // sostituire false con true nel file 'StoreProjectRequest'
-        // public function authorize(): bool
-        // {
-        //     return true;
-        // }
 
         // dd($request);
 
@@ -76,15 +72,20 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         // sostituire false con true nel file 'UpdateProjectRequest'
-        // public function authorize(): bool
-        // {
-        //     return true;
-        // }
+
         $val_data = $request->validated();
+
+        if($request->hasFile('cover_image')){
+            if($project->cover_image){
+                Storage::delete($project->cover_image);
+            }
+
+            $path = Storage::disk('public')->put('project_image', $request->cover_image);
+            $val_data['cover_image'] = $path;
+        }
 
         $project->update($val_data);
         return redirect()->route('dashboard.projects.index');
-
     }
 
     /**
@@ -92,6 +93,12 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        // cancella nella cartella Storage l'immagine
+        if($project->cover_image){
+            Storage::delete($project->cover_image);
+        }
+
+        // cancella dal DB
         $project->delete();
         // una volta eliminata la colonna desiderata, torneremo nella rotta 'dashboard.projects.index'
         return redirect()->route('dashboard.projects.index');

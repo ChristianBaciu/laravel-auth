@@ -14,7 +14,7 @@
             {{-- <figure>{{$project->cover_image}}</figure> --}}
             <div class="d-flex justify-content-center">
                 @if ($project->cover_image)
-                    <img src="{{asset('/storage/' . $project->cover_image)}}" alt="">
+                    <img class="img-fluid" src="{{asset('/storage/' . $project->cover_image)}}" alt="img">
                 @endif
             </div>
 
@@ -22,9 +22,3 @@
         </div>
     </div>
 @endsection
-
-<style>
-    img{
-        width: 500px;
-    }
-</style>
