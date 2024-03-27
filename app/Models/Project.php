@@ -10,7 +10,8 @@ class Project extends Model
     use HasFactory;
 
     public $fillable = [
-        'titolo', 'contenuto'
+        // aggiunto 'cover_image'
+        'titolo', 'contenuto', 'cover_image'
     ];
 
 }

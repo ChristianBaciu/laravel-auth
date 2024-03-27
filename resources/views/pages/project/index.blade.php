@@ -20,6 +20,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">TITOLO</th>
                         <th scope="col">CONTENUTO</th>
+                        <th scope="col">IMMAGINE</th>
                         <th scope="col">AZIONI</th>
                     </tr>
                 </thead>
@@ -29,6 +30,7 @@
                             <td>{{$item->id}}</td>
                             <td>{{$item->titolo}}</td>
                             <td>{{$item->contenuto}}</td>
+                            <td>{{$item->cover_image}}</td>
                             <td>
                                 <div class="d-flex gap-2">
                                     {{-- <button class="btn btn-warning">Modifica</button> --}}

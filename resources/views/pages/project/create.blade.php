@@ -9,8 +9,10 @@
         </div>
 
         {{-- aggiungere sempre 'method POST' --}}
-        <form action="{{route('dashboard.projects.store')}}" method="POST">
+        <form action="{{route('dashboard.projects.store')}}" method="POST"
+            enctype="multipart/form-data">
             @csrf
+
 
             <div class="mb-3">
                 <label for="titolo" class="form-label">Titolo</label>
@@ -20,9 +22,7 @@
                     id="titolo"
                     placeholder="..."
                     class="form-control
-                    @error('titolo')
-                        is-invalid
-                    @enderror"
+                    @error('titolo') is-invalid @enderror"
                 />
                 {{-- for, name, id uguali --}}
                 @error('titolo')
@@ -33,6 +33,16 @@
             </div>
 
             <div class="mb-3">
+                <label for="cover_image" class="form-label">Immagine</label>
+                <input
+                    type="file"
+                    name="cover_image"
+                    id="cover_image"
+                    class="form-control"
+                />
+            </div>
+
+            <div class="mb-3">
                 <label for="contenuto" class="form-label">Contenuto</label>
                 <input
                     type="text"
@@ -40,9 +50,7 @@
                     id="contenuto"
                     placeholder="..."
                     class="form-control
-                    @error('contenuto')
-                        is-invalid
-                    @enderror"
+                    @error('contenuto') is-invalid @enderror"
                 />
                 {{-- for, name, id uguali --}}
                 @error('contenuto')

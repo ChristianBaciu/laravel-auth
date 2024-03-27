@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -42,6 +43,12 @@ class ProjectController extends Controller
 
         $val_data = $request->validated();
         // dd($val_data);
+
+        // gestione img
+        if($request->hasFile('cover_image')){
+            $path = Storage::disk('public')->put('project_image', $request->cover_image);
+            $val_data['cover_image'] = $path;
+        }
 
         $new_project = Project::create($val_data);
         return redirect()->route('dashboard.projects.index');
