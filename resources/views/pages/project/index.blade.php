@@ -28,7 +28,13 @@
                     @foreach ($projects as $item)
                         <tr>
                             <td>{{$item->id}}</td>
-                            <td>{{$item->titolo}}</td>
+
+                            <td>
+                                <a href="{{route('dashboard.projects.show', $item->id)}}">
+                                    {{$item->titolo}}
+                                </a>
+                            </td>
+
                             <td>{{$item->contenuto}}</td>
                             <td>{{$item->cover_image}}</td>
                             <td>
