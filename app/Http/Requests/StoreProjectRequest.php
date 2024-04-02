@@ -23,9 +23,10 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             // 'required' serve a garantire che un campo sia obbligatorio e non possa essere lasciato vuoto
-            'titolo' => ['required', 'max:100'],
+            'titolo' => ['required', 'unique:projects', 'max:100'],
             'contenuto' => ['required', 'max:200'],
             'cover_image' => ['nullable', 'image', 'max:20000']
+            // unique: serve per rendere il 'titolo' unico
             // nullable: campo non obbligatorio da complilare
             // image: deve essere di tipo img
             // max: massimo * dimensione

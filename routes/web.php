@@ -59,7 +59,6 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     // PUT|PATCH   dashboard/projects/{project} .......... dashboard.projects.update › ProjectController@update
     // DELETE      dashboard/projects/{project} .......... dashboard.projects.destroy › ProjectController@destroy
     // GET|HEAD    dashboard/projects/{project}/edit ..... dashboard.projects.edit › ProjectController@edit
-
 });
 
 require __DIR__.'/auth.php';

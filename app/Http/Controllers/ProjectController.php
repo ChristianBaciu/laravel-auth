@@ -35,10 +35,7 @@ class ProjectController extends Controller
     {
         // sostituire false con true nel file 'StoreProjectRequest'
 
-        // dd($request);
-
         $val_data = $request->validated();
-        // dd($val_data);
 
         // gestione img
         if($request->hasFile('cover_image')){
@@ -79,7 +76,6 @@ class ProjectController extends Controller
             if($project->cover_image){
                 Storage::delete($project->cover_image);
             }
-
             $path = Storage::disk('public')->put('project_image', $request->cover_image);
             $val_data['cover_image'] = $path;
         }
